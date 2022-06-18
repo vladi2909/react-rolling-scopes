@@ -3,19 +3,34 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import Button from '@mui/material/Button';
 
-const searchWrap = {
+const searchBlock = {
   display: 'flex',
   justifyContent: 'center',
+  marginTop: '14px',
+};
+
+const searchWrap = {
+  display: 'flex',
+};
+
+const searchInput = {
+  border: '1px solid #777',
+  borderRadius: '4px',
+  borderRight: 'none',
 };
 
 const HomePage = () => {
   return (
-    <div style={searchWrap}>
-      <Search>
+    <div style={searchBlock}>
+      <Search style={searchWrap}>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+        <StyledInputBase
+          placeholder="Search…"
+          inputProps={{ 'aria-label': 'search' }}
+          style={searchInput}
+        />
         <Button variant="contained">Search</Button>
       </Search>
     </div>
