@@ -1,26 +1,51 @@
-import SearchIcon from '@mui/icons-material/Search';
+import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import Button from '@mui/material/Button';
 
-const searchWrap = {
+const searchBlock = {
   display: 'flex',
   justifyContent: 'center',
+  marginTop: '20px',
 };
 
-const HomePage = () => {
-  return (
-    <div style={searchWrap}>
-      <Search>
-        <SearchIconWrapper>
-          <SearchIcon />
-        </SearchIconWrapper>
-        <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+class HomePage extends React.Component<object, { value: string }> {
+  constructor(props: object) {
+    super(props);
+    this.state = { value: '' };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+  componentDidMount() {
+    const localStorageInput = localStorage.getItem('input');
+
+    if (typeof localStorageInput === 'string') {
+      this.setState({ value: localStorageInput });
+    }
+  }
+
+  componentWillUnmount() {
+    localStorage.setItem('input', this.state.value);
+  }
+
+  handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    this.setState({ value: e.target.value });
+  }
+
+  render() {
+    return (
+      <div style={searchWrap}>
+        <input
+          type="text"
+          onChange={this.handleInputChange}
+          value={this.state.value}
+          placeholder="Search ..."
+        />
         <Button variant="contained">Search</Button>
-      </Search>
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
