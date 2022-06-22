@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 const searchBlock = {
   display: 'flex',
   justifyContent: 'center',
-<<<<<<< HEAD
   marginTop: '20px',
 };
 
@@ -35,38 +34,12 @@ class HomePage extends React.Component<object, { value: string }> {
 
   render() {
     return (
-      <div style={searchWrap}>
+      <div style={searchBlock}>
         <input
           type="text"
           onChange={this.handleInputChange}
           value={this.state.value}
           placeholder="Search ..."
-=======
-  marginTop: '14px',
-};
-
-const searchWrap = {
-  display: 'flex',
-};
-
-const searchInput = {
-  border: '1px solid #777',
-  borderRadius: '4px',
-  borderRight: 'none',
-};
-
-const HomePage = () => {
-  return (
-    <div style={searchBlock}>
-      <Search style={searchWrap}>
-        <SearchIconWrapper>
-          <SearchIcon />
-        </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search…"
-          inputProps={{ 'aria-label': 'search' }}
-          style={searchInput}
->>>>>>> fd79441cdbca0a36116eccd294c3ce225e2f78b0
         />
         <Button variant="contained">Search</Button>
       </div>
