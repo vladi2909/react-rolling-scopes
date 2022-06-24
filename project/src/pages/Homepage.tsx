@@ -20,7 +20,7 @@ class HomePage extends React.Component<object, { value: string }> {
   componentDidMount() {
     const localStorageInput = localStorage.getItem('input');
     if (typeof localStorageInput === 'string') {
-      // this.setState({ value: localStorageInput });
+      this.setState({ value: localStorageInput });
     }
   }
 

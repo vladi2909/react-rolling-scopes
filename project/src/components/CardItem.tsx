@@ -17,7 +17,6 @@ interface Card {
 
 class CardItem extends React.Component<Card, { value: string }> {
   render() {
-    console.log(this.props);
     return (
       <>
         <Grid item xs={4}>
