@@ -2,6 +2,7 @@ import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import Button from '@mui/material/Button';
+import { Cards } from '../components/Cards';
 
 const searchBlock = {
   display: 'flex',
@@ -18,9 +19,8 @@ class HomePage extends React.Component<object, { value: string }> {
   }
   componentDidMount() {
     const localStorageInput = localStorage.getItem('input');
-
     if (typeof localStorageInput === 'string') {
-      this.setState({ value: localStorageInput });
+      // this.setState({ value: localStorageInput });
     }
   }
 
@@ -34,15 +34,18 @@ class HomePage extends React.Component<object, { value: string }> {
 
   render() {
     return (
-      <div style={searchBlock}>
-        <input
-          type="text"
-          onChange={this.handleInputChange}
-          value={this.state.value}
-          placeholder="Search ..."
-        />
-        <Button variant="contained">Search</Button>
-      </div>
+      <>
+        <div style={searchBlock}>
+          <input
+            type="text"
+            onChange={this.handleInputChange}
+            value={this.state.value}
+            placeholder="Search ..."
+          />
+          <Button variant="contained">Search</Button>
+        </div>
+        <Cards />
+      </>
     );
   }
 }
